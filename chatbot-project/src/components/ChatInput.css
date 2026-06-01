@@ -1,0 +1,23 @@
+.input-container{
+  display:flex;
+  margin-bottom: 60px;
+}
+.input-container button, 
+.input-container input {
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 16px;
+  
+}
+.input-container button{
+  width: 15%;
+  max-width: 200px;
+  background-color: #198754;
+  border: none;
+  color: white;
+}
+.input-container input{
+  flex-grow: 1;
+  margin-right: 1rem;
+  border: 1px solid gray;
+}
