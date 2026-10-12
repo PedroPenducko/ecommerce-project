@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import {useEffect, useState} from 'react';
 
-import "./Homepage.css";
+import "./HomePage.css";
 import { Header } from "../../components/Header";
 import { ProductsGrid } from './ProductsGrid';
 

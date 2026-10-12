@@ -4,7 +4,7 @@ import { useState, useEffect, Fragment } from 'react';
 import { Header } from '../../components/Header';
 import dayjs from 'dayjs';
 import {formatMoney} from "../../utils/money"
-export function OrdersPage({cart}){
+export default function OrdersPage({cart}){
   const [orders, setOrders] = useState([]);
 
   useEffect(()=>{

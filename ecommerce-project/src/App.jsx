@@ -1,10 +1,12 @@
-import { HomePage } from "./pages/home/HomePage";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router";
-import { CheckoutPage } from "./pages/checkout/CheckoutPage";
-import { OrdersPage } from "./pages/order/OrdersPage";
-import { TrackingPage } from "./pages/TrackingPage";
+
+import { HomePage } from "./pages/home/HomePage";
+
+const CheckoutPage = lazy(()=> import("./pages/checkout/CheckoutPage"));
+const OrdersPage = lazy(()=>import("./pages/order/OrdersPage"));
+const TrackingPage = lazy(()=>import("./pages/TrackingPage"));
 
 import "./App.css";
 
@@ -19,14 +21,14 @@ axios.get('/api/cart-items?expand=product')
 loadCart();
       },[])  
   return (
-    <>
+    <Suspense fallback={<div>loading...</div>}>
       <Routes>
         <Route index element={<HomePage cart={cart} loadCart={loadCart} />} />
         <Route path="checkout" element={<CheckoutPage cart={cart} loadCart={loadCart} />} />
         <Route path="orders" element={<OrdersPage cart={cart} />} />
         <Route path="tracking" element={<TrackingPage />} />
       </Routes>
-    </>
+    </Suspense>
   );
 }
 

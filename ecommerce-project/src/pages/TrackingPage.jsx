@@ -1,6 +1,6 @@
 import "./TrackingPage.css";
 import { Header } from "../components/Header";
-export function TrackingPage(){
+export default function TrackingPage(){
   return (
     <>
      <title>Tracking</title>
